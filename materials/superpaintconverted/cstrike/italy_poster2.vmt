@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "decals/italy_poster2"
+	"$translucent" 1
+	"$decal" 1
+	"$decalscale" 0.2
+}

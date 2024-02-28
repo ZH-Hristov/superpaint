@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "overlays/signstreet005a"
+	"$translucent" 1
+	"$decal" 1
+	"$vertexcolor" "1"
+	"$vertexalpha" "1"
+}

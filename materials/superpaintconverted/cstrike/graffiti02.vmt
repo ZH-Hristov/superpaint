@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "decals/graffiti02"
+	"$translucent" 1
+	"$decal" 1
+}

@@ -1,0 +1,7 @@
+VertexLitGeneric
+{
+$basetexture "overlays/urban_paintswatch_04a"
+$surfaceprop default
+$translucent 1
+$decal 1
+}

@@ -1,0 +1,8 @@
+VertexLitGeneric
+{
+	"$basetexture"	"decals\infplaque"
+	"$translucent" "1"
+	"$decal" "1"
+	"$decalscale" "0.07"
+
+}

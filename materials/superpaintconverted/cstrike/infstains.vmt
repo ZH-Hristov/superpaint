@@ -1,0 +1,6 @@
+VertexLitGeneric
+{
+	"$basetexture"	"decals\infstains"
+	"$translucent" "1"
+
+}

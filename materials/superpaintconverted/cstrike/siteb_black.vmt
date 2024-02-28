@@ -1,0 +1,8 @@
+VertexLitGeneric
+{
+	"$basetexture"	"decals\siteb_black"
+	"$translucent" "1"
+	"$decal" "1"
+	"$decalscale" "1.000"
+
+}
