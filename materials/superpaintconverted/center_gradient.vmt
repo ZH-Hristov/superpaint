@@ -1,0 +1,7 @@
+"UnlitGeneric"
+{
+	"$basetexture"		"gui/center_gradient"
+	"$vertexcolor" 		1
+	"$vertexalpha" 		1
+	"$decal"			1
+}

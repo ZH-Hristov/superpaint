@@ -1,0 +1,6 @@
+"UnlitGeneric"
+{
+	"$basetexture" "gm_construct/citycard01"
+	"$vertexalpha" "1"
+	"$decal" 1
+}
