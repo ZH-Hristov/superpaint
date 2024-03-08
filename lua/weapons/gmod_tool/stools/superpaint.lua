@@ -31,7 +31,7 @@ function TOOL:LeftClick( trace )
         end
 
         local w, h = self:GetClientNumber("width"), self:GetClientNumber("height")
-        DoSuperPaint(self.TargetEntity, self:GetClientInfo("mat"), trace.HitPos, trace.HitNormal, w, h)
+        DoSuperPaint(self.TargetEntity, self:GetClientInfo("mat"), self.TargetEntity:WorldToLocal(trace.StartPos), self.TargetEntity:WorldToLocal(trace.HitPos), w, h)
         EmitSound("superpaintsploink.mp3", trace.HitPos, 0, CHAN_STATIC, 1, 100, SND_NOFLAGS, math.Remap(w, 0.01, 128, 150, 70))
     end
 end
@@ -94,7 +94,7 @@ function TOOL:Reload()
 
     if SERVER then
         ent.superpaints = nil
-        duplicator.ClearEntityModifier("superpaintsave")
+        duplicator.ClearEntityModifier(ent, "superpaintsave")
         ent:RemoveAllDecals()
     else
         ent:RemoveAllDecals()

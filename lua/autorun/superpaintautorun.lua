@@ -8,7 +8,7 @@ duplicator.RegisterEntityModifier( "superpaintsave", function(ply, ent, data)
     end
 end)
 
-function DoSuperPaint(ent, mat, startpos, normal, width, height)
+function DoSuperPaint(ent, mat, startpos, endpos, width, height)
     if SERVER then
         ent.superpaints = ent.superpaints or {}
 
@@ -16,17 +16,26 @@ function DoSuperPaint(ent, mat, startpos, normal, width, height)
         net.WriteEntity(ent)
         net.WriteString(mat)
         net.WriteVector(startpos)
-        net.WriteVector(normal)
+        net.WriteVector(endpos)
         net.WriteFloat(math.Clamp(math.Round(width, 2), 0.01, 1024))
         net.WriteFloat(math.Clamp(math.Round(height, 2), 0.01, 1024))
         net.Broadcast()
 
         if ent:GetClass() == "prop_physics" then
-            table.insert(ent.superpaints, {ent, mat, startpos, normal, width, height})
+            table.insert(ent.superpaints, {mat, startpos, endpos, width, height})
             duplicator.StoreEntityModifier(ent, "superpaintsave", ent.superpaints)
         end
     else
-        util.DecalEx(Material(mat), ent, startpos, normal, color_white, width, height)
+        local ltwS = ent:LocalToWorld(startpos)
+        local ltwE = ent:LocalToWorld(endpos)
+        local dir =  (ltwE - ltwS):Angle():Forward()
+        local tr = util.TraceLine({
+            start = ltwS,
+            endpos = ltwS + dir * 16384,
+            filter = player.GetAll()
+        })
+
+        util.DecalEx(Material(mat), ent, ltwE, tr.HitNormal, color_white, width, height)
     end
 end
 
